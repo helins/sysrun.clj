@@ -265,11 +265,15 @@
     (try
       (.addShutdownHook -runtime
                         thread)
-      (fn cancel []
-        (.removeShutdownHook -runtime
-                             thread))
+      (fn cancel-action []
+        (try
+          (.removeShutdownHook -runtime
+                               thread)
+          (catch Exception _
+            nil))
+        nil)
       (catch IllegalStateException _
-        (fn cancel []
+        (fn cancel-action []
           nil)))))
 
 

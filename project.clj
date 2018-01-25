@@ -7,7 +7,7 @@
                 :url  "http://www.eclipse.org/legal/epl-v10.html"}
   :profiles    {:dev {:source-paths ["dev"]
                       :main         user
-                      :dependencies [[org.clojure/clojure "1.9.0"]
+                      :dependencies [[org.clojure/clojure    "1.9.0"]
                                      [org.clojure/test.check "0.10.0-alpha2"]
                                      [criterium              "0.4.4"]]
                       :plugins      [[venantius/ultra "0.5.2"]

@@ -24,7 +24,7 @@
 
 (def line-separator
 
-  "Current system-dependant line separator."
+  "System-dependant line separator."
 
   (System/lineSeparator))
 
@@ -104,7 +104,7 @@
 
 (defn property
 
-  "Gets, sets or removes (if `value` is nil) system properties.
+  "Gets, sets or removes (when `value` is nil) system properties.
   
   
    Throws
@@ -150,7 +150,7 @@
 
 (defn memory-allocated
 
-  "Amound of memory currently allocated by the JVM, in bytes."
+  "Amount of memory currently allocated by the JVM, in bytes."
 
   []
 
@@ -184,7 +184,9 @@
 
 (defn memory-limit
 
-  "Maximum amount of memory the JVM will attempt to use in total, in bytes."
+  "Maximum amount of memory the JVM will attempt to use in total, in bytes.
+  
+   This is a soft limit."
 
   []
 
@@ -233,9 +235,9 @@
 
 (defn native-name
 
-  "Depending on the OS, native library naming usually follow a convention.
+  "Returns a platform-specific filename given a generic one.
 
-   Given a generic name, returns a platform-specific name.
+   Depending on the OS, native library naming usually follow a convention.
 
    Ex. On linux, \"c\" => \"libc.so\""
 

@@ -12,7 +12,7 @@ Do you wish to execute a function when the JVM shutdowns ?
 Look at memory usage ?
 Precisely time what is going on ?
 
-Then read the [API](https://dvlopt.github.io/doc/sysrun/).
+Then read the [API](https://dvlopt.github.io/doc/dvlopt/sysrun/index.html).
 
 ## License
 

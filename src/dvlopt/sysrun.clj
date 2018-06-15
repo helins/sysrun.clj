@@ -105,12 +105,8 @@
 (defn property
 
   "Gets, sets or removes (when `value` is nil) system properties.
-  
-  
-   Throws
-  
-     java.lang.SecurityException
-       When not allowed."
+
+   Throws when not allowed."
 
   ([]
 
@@ -254,29 +250,17 @@
   "Registers an action (ie. no-arg function) to execute on JVM shutdown.
   
    Returns a no-arg function for cancelling the registration.
-  
-  
-   Throws
-  
-     java.lang.SecurityException
-       When not allowed."
+
+   Might throw both when adding an action and removing one."
 
   [^Runnable action]
 
   (let [thread (Thread. action)]
-    (try
-      (.addShutdownHook -runtime
-                        thread)
-      (fn cancel-action []
-        (try
-          (.removeShutdownHook -runtime
-                               thread)
-          (catch Exception _
-            nil))
-        nil)
-      (catch IllegalStateException _
-        (fn cancel-action []
-          nil)))))
+    (.addShutdownHook -runtime
+                      thread)
+    (fn cancel-action []
+      (.removeShutdownHook -runtime
+                           thread))))
 
 
 
@@ -287,12 +271,8 @@
 
    Before halting the process, runs shutdown hooks.
 
-
-   Throws
-
-     java.lang.SecurityException
-       When not allowed.
-
+   Throws when not allowed.
+  
    Cf. `on-shutdown`"
 
   ([]

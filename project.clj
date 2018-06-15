@@ -1,5 +1,5 @@
 (defproject dvlopt/sysrun
-            "0.0.2"
+            "0.0.3"
 
   :description "Miscellaneous system utilities"
   :url         "https://github.com/dvlopt/sysrun"
